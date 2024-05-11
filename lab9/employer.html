@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup/Login Forms</title>
+    <script>
+        function validateSignupForm() {
+            // Reset error messages
+            document.getElementById('signupErrors').textContent = '';
+
+            var firstName = document.signupForm.firstName.value;
+            var lastName = document.signupForm.lastName.value;
+            var organization = document.signupForm.organization.value;
+            var email = document.signupForm.email.value;
+            var workPhone = document.signupForm.workPhone.value;
+            var homePhone = document.signupForm.homePhone.value;
+            var cellPhone = document.signupForm.cellPhone.value;
+            var fax = document.signupForm.fax.value;
+            var address1 = document.signupForm.address1.value;
+            var address2 = document.signupForm.address2.value;
+            var city = document.signupForm.city.value;
+            var stateProvince = document.signupForm.stateProvince.value;
+            var zipPostalCode = document.signupForm.zipPostalCode.value;
+            var country = document.signupForm.country.value;
+
+            var isValid = true;
+
+            if (firstName === '') {
+                document.getElementById('firstNameError').textContent = 'First Name is required';
+                isValid = false;
+            }
+            if (lastName === '') {
+                document.getElementById('lastNameError').textContent = 'Last Name is required';
+                isValid = false;
+            }
+            if (organization === '') {
+                document.getElementById('organizationError').textContent = 'Organization is required';
+                isValid = false;
+            }
+            if (email === '' || !isValidEmail(email)) {
+                document.getElementById('emailError').textContent = 'Email is not in proper format';
+                isValid = false;
+            }
+            if (!workPhone || workPhone === '') {
+                document.getElementById('workPhoneError').textContent = 'Work Phone must be provided';
+                isValid = false;
+            }
+            if (!homePhone || homePhone === '') {
+                document.getElementById('homePhoneError').textContent = 'Home Phone must be provided';
+                isValid = false;
+            }
+            if (!cellPhone || cellPhone === '') {
+                document.getElementById('cellPhoneError').textContent = 'Cell Phone must be provided';
+                isValid = false;
+            }
+            if (!fax || fax === '') {
+                document.getElementById('faxError').textContent = 'Fax must be provided';
+                isValid = false;
+            }
+
+            if (address1 === '') {
+                document.getElementById('address1Error').textContent = 'Address 1 is required';
+                isValid = false;
+            }
+            if (city === '') {
+                document.getElementById('cityError').textContent = 'City is required';
+                isValid = false;
+            }
+            if (stateProvince === '') {
+                document.getElementById('stateProvinceError').textContent = 'State/Province is required';
+                isValid = false;
+            }
+            if (zipPostalCode === '' || !/^\d+$/.test(zipPostalCode)) {
+                document.getElementById('zipPostalCodeError').textContent = 'Zip/Postal Code must be numeric only';
+                isValid = false;
+            }
+            if (country === '') {
+                document.getElementById('countryError').textContent = 'Country is required';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            var atIndex = email.indexOf('@');
+            var dotIndex = email.lastIndexOf('.');
+
+            if (atIndex <= 0) {
+                return false;
+            }
+
+            if (dotIndex <= atIndex + 1 || dotIndex === email.length - 1) {
+                return false;
+            }
+
+            // Check if 'z' exists after the last dot '.'
+            var len = email.indexOf('z') > dotIndex;
+
+            return len;
+        }
+    </script>
+</head>
+<body>
+<h1> Sign Up Page</h1>
+    <form name="signupForm" method="post" onsubmit="return validateSignupForm()">
+        <table>
+           <tr>
+    <td>First, Last Name:</td>
+    <td><input type="text" name="firstName"></td>
+    <td><div id="firstNameError" style="color: red;"></div></td>
+    <td><input type="text" name="lastName"></td>
+    <td><div id="lastNameError" style="color: red;"></div></td>
+</tr>
+
+            <tr>
+                <td>Organization:</td>
+                <td><input type="text" name="organization"></td>
+                <td><div id="organizationError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Email Address:</td>
+                <td><input type="text" name="email"></td>
+                <td><div id="emailError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Work Phone:</td>
+                <td><input type="text" name="workPhone"></td>
+                <td><div id="workPhoneError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Home Phone:</td>
+                <td><input type="text" name="homePhone"></td>
+                <td><div id="homePhoneError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Cell Phone:</td>
+                <td><input type="text" name="cellPhone"></td>
+                <td><div id="cellPhoneError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Fax:</td>
+                <td><input type="text" name="fax"></td>
+                <td><div id="faxError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Address 1:</td>
+                <td><input type="text" name="address1"></td>
+                <td><div id="address1Error" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Address 2:</td>
+                <td><input type="text" name="address2"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" name="city"></td>
+                <td><div id="cityError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>State/Province:</td>
+                <td><input type="text" name="stateProvince"></td>
+                <td><div id="stateProvinceError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Zip/Postal Code:</td>
+                <td><input type="text" name="zipPostalCode"></td>
+                <td><div id="zipPostalCodeError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td>Country:</td>
+                <td><input type="text" name="country"></td>
+                <td><div id="countryError" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center"><input type="submit" value="Signup"></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center"><div id="signupErrors" style="color: red;"></div></td>
+            </tr>
+        </table>
+    </form>
+
+    <br>
+
+<h1>Login</h1>
+
+    <form name="loginForm" method="post">
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Login"></td>
+         
+                <td>Not a member? <a href="#">Register</a></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+
+
+
+
