@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+
+	<servlet>
+		<servlet-name>First</servlet-name>
+		<servlet-class>First.java</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>First</servlet-name>
+		<url-pattern>/First</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Second</servlet-name>
+		<servlet-class>Second.java</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Second</servlet-name>
+		<url-pattern>/Second</url-pattern>
+	</servlet-mapping>
+
+	
+	<servlet>
+		<servlet-name>Greeting</servlet-name>
+		<servlet-class>Greeting.java</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Greeting</servlet-name>
+		<url-pattern>/Greeting</url-pattern>
+	</servlet-mapping>
+
+
+
+</web-app>

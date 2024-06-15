@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>First</servlet-name>
+    <servlet-class>First</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>First</servlet-name>
+    <url-pattern>/First</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>xyz</servlet-name>
+    <servlet-class>Second</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>xyz</servlet-name>
+    <url-pattern>/HelloWorld</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Greeting</servlet-name>
+    <servlet-class>Greeting</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Greeting</servlet-name>
+    <url-pattern>/Greeting</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>firstPage</display-name>
+    <servlet-name>firstPage</servlet-name>
+    <servlet-class>firstPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>firstPage</servlet-name>
+    <url-pattern>/firstPage</url-pattern>
+  </servlet-mapping>
+</web-app>
